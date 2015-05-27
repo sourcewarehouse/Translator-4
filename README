@@ -1,0 +1,52 @@
+ABOUT
+ This is a translator from Java to C++.
+ The translator produces correct C++ for the provided 39 Java test files.
+ This translator was built on top of the given XTC software package.
+  More information about XTC here: http://cs.nyu.edu/xtc/
+
+ The translator’s source code is located in: Translator/xtc/src/cpptranslator 
+
+************************************************************************
+
+RUNNING THE TRANSLATOR:
+
+1. Configure XTC for your machine according 
+   to the instructions here:
+   http://cs.nyu.edu/rgrimm/xtc/step-by-step.html
+
+   Note that there is no need to install XTC separately. 
+   This package is built on top of XTC, so it already
+   includes XTC.
+
+2. Go to directory Translator/xtc
+
+3. Compile the translator:
+ - . setup.sh
+ - make
+
+   The compiled translator files appear in: Translator/xtc/classes/cpptranslator
+
+4. Run the translator to get the C++ code for the test files:
+ - java cpptranslator/Translator classes/[filename]
+   
+   The test files are located in: Translator/xtc/classes
+   
+5. Compile the C++ code:
+ - sh CompileRecentTest.sh 
+
+   If .sh does not run:
+   - g++ -std=c++11 main.cc (any Java classes) (test file name) java_lang.cc
+
+	WHERE:
+	 (any Java classes)
+		is the series of .cc files of classes in the Java file.
+		So if the Java test file has class A and class B,
+		then this would be A.cc and B.cc; see list of printed .cc files
+	
+	 (test file name) 
+		is the name of the test file.
+		So if the Java test file is named Test001.java,
+		then this would be Test001.cc; see list of printed .cc files
+
+6. Run the compiled C++:
+ - ./a.out
